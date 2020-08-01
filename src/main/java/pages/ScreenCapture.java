@@ -24,7 +24,7 @@ public class ScreenCapture {
         driver.get("https://prod-kurs.coderslab.pl/index.php?controller=history");
         driver.manage().window().maximize();
         File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-        FileUtils.copyFile(scrFile, new File("src\\test\\Output\\screenshot1.png"), true);
+        FileUtils.copyFile(scrFile, new File("src/test/Output/screenshot1.png"), true);
         driver.quit();
     }
 }
