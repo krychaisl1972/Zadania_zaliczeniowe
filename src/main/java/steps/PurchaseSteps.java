@@ -10,6 +10,7 @@ import pages.InputPage;
 import pages.ScreenCapture;
 import pages.UserPurchasePage;
 
+import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 public class PurchaseSteps {
@@ -29,7 +30,7 @@ public class PurchaseSteps {
         driver.get("https://prod-kurs.coderslab.pl/index.php?controller=authentication");
         InputPage inputPage = new InputPage(driver);
         userPurchasePage = new UserPurchasePage(driver);
-        screenCapture = new ScreenCapture();
+        screenCapture = new ScreenCapture(driver);
 
         inputPage.loginAs("itwdnkuifyvjtqlixg@ttirv.org", "kursautomat");
     }
@@ -85,14 +86,15 @@ public class PurchaseSteps {
     }
 
 
-    @Then("^click \"order with an obligation to pay\"$")
+    @And("^click \"order with an obligation to pay\"$")
     public void userOrderPay(){
         userPurchasePage.setOrderConformation();
     }
 
 
-    @And("make screenshot with confirmation of order and price")
-    public void takeScreenshot() {
+    @Then("make screenshot with confirmation of order and price")
+    public void userTakeScreenshot() throws IOException, InterruptedException{
+        screenCapture.takeScreenshot();
 
     }
 
