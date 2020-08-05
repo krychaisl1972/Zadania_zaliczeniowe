@@ -13,5 +13,5 @@ Feature: Purchase Hummingbird Printed Sweater
     And choose delivery method - PrestaShop "pick up in store"
     And choose payment option - Pay by Check
     And click to approve conditions
-    Then click "order with an obligation to pay"
-    And make screenshot with confirmation of order and price
+    And click "order with an obligation to pay"
+    Then make screenshot with confirmation of order and price
