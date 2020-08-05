@@ -9,7 +9,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import pages.LoginPage;
 
-
 import java.util.concurrent.TimeUnit;
 
 public class AddressSteps {
@@ -71,7 +70,6 @@ public class AddressSteps {
         driver.findElement(By.name("phone")).sendKeys(phone);
     }
 
-
     @And("^User submits added new address form$")
     public void userSaveData(){
         driver.findElement(By.cssSelector("button.btn")).click();
@@ -80,6 +78,11 @@ public class AddressSteps {
     @Then("Address was submitted correctly")
     public void submitMessage(){
         driver.findElement(By.xpath("//*[@id=\"notifications\"]/div/article")).getText();
+    }
+
+    @And("close browser")
+    public void closeBrowser(){
+        driver.quit();
     }
 
 }
