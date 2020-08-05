@@ -1,5 +1,6 @@
 package pages;
 
+import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -11,7 +12,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class UserPurchasePage {
     private static WebDriver driver;
 
-    @FindBy(xpath = "/html/body/main/section/div/div/section/section/section/div/article[2]/div/div[1]/h3/a")
+    @FindBy(css = "article.product-miniature:nth-child(2) > div:nth-child(1)")
     WebElement productChoice;
 
     @FindBy(css = "#group_1 > option:nth-child(2)")
@@ -20,25 +21,25 @@ public class UserPurchasePage {
     @FindBy(xpath = "//*[@id=\"quantity_wanted\"]")
     WebElement quantityChoice;
 
-    @FindBy(xpath = "/html/body/main/section/div/div/section/div[1]/div[2]/div[2]/div[2]/form/div[2]/div/div[2]/button")
+    @FindBy(css = "button.btn-primary")
     WebElement addToCard;
 
     @FindBy(xpath = "//*[contains(text(),'Proceed to checkout')]")
     WebElement goToCheckout;
 
-    @FindBy(xpath = "/html/body/main/section/div/div/section/div/div[2]/div[1]/div[2]/div/a")
+    @FindBy(css = "a.btn")
     WebElement proceedToCheckout;
 
     @FindBy(xpath = "//*[@id=\"id-address-delivery-address-4572\"]")
     WebElement addressChoice;
 
-    @FindBy(xpath = "/html/body/section/div/section/div/div[1]/section[2]/div/div/form/div[2]/button")
+    @FindBy(css = ".btn")
     WebElement continueTo2;
 
-    @FindBy(xpath = "/html/body/section/div/section/div/div[1]/section[3]/div/div[2]/form/div/div[1]/div[1]/div/span/span")
+    @FindBy(css = "div.delivery-option:nth-child(1) > div:nth-child(1) > span:nth-child(1) > span:nth-child(2)")
     WebElement deliveryChoice;
 
-    @FindBy(xpath = "/html/body/section/div/section/div/div[1]/section[3]/div/div[2]/form/button")
+    @FindBy(css = "button.continue:nth-child(2)")
     WebElement continueTo3;
 
     @FindBy(id = "payment-option-1")
@@ -108,6 +109,9 @@ public class UserPurchasePage {
     public void setAgreeClick() {
         if (agreeClick.isEnabled())
             agreeClick.click();
+        else {
+            Assert.fail();
+        }
     }
 
     public void setOrderConformation() {
