@@ -13,6 +13,7 @@ Feature: Create new address after login
     And User set following phone "<phone>"
     And User submits added new address form
     Then Address was submitted correctly
+    And close browser
 
 
     Examples:
