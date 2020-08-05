@@ -11,7 +11,10 @@ import java.util.concurrent.TimeUnit;
 
 public class ScreenCapture {
 
-    public static void main(String[] args) throws IOException {
+    public ScreenCapture(WebDriver driver) {
+    }
+
+    public void takeScreenshot() throws IOException {
 
         System.setProperty("webdriver.gecko.driver",
                 "src/main/resources/Drivers/geckodriver");
